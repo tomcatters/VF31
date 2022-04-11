@@ -3,10 +3,10 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <title>Réalisation du Hetzer</title>
-        <link rel="stylesheet" href="Hetzer.css">
+        <link rel="stylesheet" href="../admin/lib/css/Hetzer.css">
     </head>
     <nav class="nav">
             <?php
