@@ -8,7 +8,7 @@
         
         if(empty($email) || empty($mdp)){
 
-            header("Location: index.php?error=emptyfields");
+            header("Location: index_.php?error=emptyfields");
             exit();
 
         }
@@ -16,7 +16,7 @@
             $sql = "SELECT * FROM client WHERE email=?";
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt, $sql)){
-                header("Location: index.php?error=sqlerror");
+                header("Location: index_.php?error=sqlerror");
                 exit();
             }
             else{
@@ -36,7 +36,7 @@
 
                     $mdpCheck = password_verify($mdp, $row['mdp']);
                     if($mdpCheck == false){
-                        header("Location: index.php?error=wrongmdp");
+                        header("Location: index_.php?error=wrongmdp");
                         exit();
                     }
                     else if($mdpCheck == true){
@@ -47,11 +47,11 @@
                         $_SESSION['userEmail'] = $row['email'];
                         $_SESSION['userNumtel'] = $row['numtel'];
 
-                        header("Location: index.php?login=success");
+                        header("Location: index_.php?login=success");
                         exit();
                     }
                     else{
-                        header("Location: index.php?error=wrongmdp");
+                        header("Location: index_.php?error=wrongmdp");
                         exit();
                     }
                 }

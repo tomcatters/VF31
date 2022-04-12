@@ -1,16 +1,36 @@
-<?php
-$query = "select * from p_ville";
-$result = $cnx->query($query);
+<div>
+    <p>
+    <h3 id="acc_intro">Bienvenue sur ce site de construction et de peinture de maquette. Ce site vous présentera un guide sur la réalisation complète
+        <br>
+        et détaillée d'une maquette en commençant par la construction de ladite maquette jusqu'à la peinture finale, en passant par l'étape
+        <br>
+        de peinture de base et pré-patinage.</h3>
+    </p>
+    <div>
+        <table class="acc_TableAlign">
+            <tr>
+                <td>
+                    <a href=""><img src="admin/images/T34.jpg" alt="T34/76" width="400" height="300"></a>
+                </td>
+                <td>
+                    <a href=""><img src="admin/images/M3Stuart.jpg" alt="M3 Stuart" width="400" height="300"></a>
+                </td>
+                <td>
+                    <a class="nav-link" href="index_.php?page=Hetzer.php"><img src="admin/images/Hetzer.jpg" alt="Pz.38t Hetzer" width="400" height="300"></a>
+                </td>
+                <td>
+                    <a href=""><img src="admin/images/Panther.jpg" alt="hetzer" width="400" height="300"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="TdAlign"><h3 class="acc_border">T-34/76</h3></td>
+                <td class="TdAlign"><h3 class="acc_border">M3 Stuart</h3></td>
+                <td class="TdAlign"><h3 class="acc_border">JgPz. 38t Hetzer</h3></td>
+                <td class="TdAlign"><h3 class="acc_border">Pz.Kpfw. V Panther</h3></td>
+            </tr>
+        </table>
 
-$data = $result->fetchAll();
-//var_dump($data);
-$nbr = count($data);
-for($i = 0;$i < $nbr;$i++){
-    print "<br>".$data[$i]['nom_ville']." (".$data[$i]['code_postal'].")";
-}
-
-/*foreach($data as $d){
-    print "<br>".$d['nom_ville'];
-}
-*/
+        <h2 class="TdAlign">Cliquez sur l'image de votre choix</h2>
+    </div>
+</div>
 

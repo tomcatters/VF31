@@ -1,89 +1,15 @@
-body{
-    padding: 0;
-    margin: 0;
-    background-image: url("../../images/wall.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: scroll;
-}
-
-.nav{
-    overflow: hidden;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    font-weight: bold;
-    font-size: 17px;
-    background-color: rgb(169,186,135);
-}
-
-.nav a{
-    color: black;
-    float: right;
-    text-align: center;
-    margin-right: 1em;
-    padding: 14px 16px;
-}
-
-.nav a:hover{
-    color: white;
-    background-color: khaki;
-}
-
-#language{
-    margin-right: 1em;
-}
-
-.header{
-    margin-right: 1em;
-    text-decoration: underline;
-}
-
-#intro{
+#acc_intro{
     margin-left: 30px;
     text-align: center;
     color: white;
 }
 
-.footer{
-    position: relative;
-    background-color: rgb(169,186,135);
-    height: 130px;
-    overflow: hidden;
-}
-
-.footer .footer_rights{
-    margin: 0px;
-    position: absolute;
-    text-align: center;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    border: 2px solid yellowgreen;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-footer a{
-    font-weight: bold;
-    color: black;
-    text-decoration: none;
-    float: right;
-    margin-right: 1.5em;
-    padding-top: 1em;
-}
-
-.TableAlign{
+.acc_TableAlign{
     margin-left: auto;
     margin-right: auto;
 }
 
-.TdAlign{
-    text-align: center;
-    color: white;
-}
-
-.border{
+.acc_border{
     border:2px solid yellow;
     border-collapse: separate;
 }

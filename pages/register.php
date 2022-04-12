@@ -5,18 +5,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="register.css">
+        <link rel="stylesheet" href="../admin/lib/css/register.css">
         <title>Formulaire d'inscription</title>
         <meta charset="UTF-8">
     </head>
     <body>
-
-        <nav class="nav">
-            <a href="index.php">Acceuil</a>
-        </nav>
-        <header>
-            <img src="FV214.jpg" alt="FV214" width="100%" height="400px">
-        </header>
         <div>
             <form action="signup.php" method="post">
                 <table class="gauche">
@@ -101,15 +94,5 @@
             </form>
         </div>
         <div class="clear"></div>
-        <footer class="footer">
-            <div>
-                <a href="ContactUs.php">Nous contacter</a>
-                <br><br>
-                <a href="AboutUs.php">À propos</a>
-            </div>
-            <p class="footer_rights">
-                Copyright © 2017-2020 Crawford-Industries.
-            </p>
-        <footer>
     </body>
 </html>

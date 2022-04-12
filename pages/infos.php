@@ -1,33 +1,5 @@
-<?php
-    session_start();
-?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Plus information</title>
-        <link rel="stylesheet" href="info.css">
-        <meta charset="UTF-8">
-    </head>
-    <nav class="nav">
-            <?php
-                if(isset($_SESSION['userId'])){
-                    echo '<a href="logout.php">déconnexion</a>
-                        <a href="user.php">compte</a>
-                          <a href="index.php">Acceuil</a>';
-                }
-                else{
-                    echo '<a href="register.php">se connecter</a>
-                        <a href="index.php">Acceuil</a>';
-                }
-            ?>
-    </nav>
-    <header>
-        <img src="FV214.jpg" alt="FV214" width="100%" height="400px">
-    </header>
-    <body>
-        <h1 class="title">Demande d'informations complémentaires</h1>
-        <div>
+<h1 class="title">Demande d'informations complémentaires</h1>
+    <div>
             <form action="infosSend.php" method="post">
                 <table>
                     <tr>
@@ -132,16 +104,4 @@
             </fieldset>
             </div>
             </form>
-        </div>
-        <footer class="footer">
-            <div>
-                <a href="ContactUs.php">Nous contacter</a>
-                <br><br>
-                <a href="AboutUs.php">À propos</a>
-            </div>
-            <p class="footer_rights">
-                Copyright © 2020 Crawford-Industries.
-            </p>
-        </footer>
-    </body>
-</html>
+    </div>
