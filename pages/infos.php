@@ -1,7 +1,7 @@
 <h1 class="title">Demande d'informations complémentaires</h1>
     <div>
             <form action="infosSend.php" method="post">
-                <table>
+                <table class="inf_table">
                     <tr>
                         <th colspan="2">
                             <h3>Les rubriques obligatoires sont indiquées par *</h3>
@@ -96,9 +96,9 @@
                     </tr>
                 </table>
             <div>
-            <fieldset>
+            <fieldset class="inf_fieldset">
                 <legend>Posez votre question ici</legend>
-                <textarea name="content" cols="100" rows="20"></textarea>
+                <textarea class="inf_textarea" name="content" cols="80" rows="15"></textarea>
                 <br>
                 <button type="submit" name="send-submit">Envoyez</button>
             </fieldset>

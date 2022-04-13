@@ -1,27 +1,15 @@
-#language{
-    text-align: right;
-    margin-right: 1em;
-}
-
-.title{
-    margin-left: 30px;
-    text-decoration: underline;
-    margin-bottom: 1em;
-    color: white;
-}
-
-table{
+.inf_table{
     background-color: rgb(70,82,50);
     margin-left: 1em;
     padding: 0.5em;
     font-size: larger;
 }
 
-table td{
+.inf_table td{
     color: white;
 }
 
-fieldset{
+.inf_fieldset{
     background-color: rgb(70,82,50);
     width: 50%;
     font-size: larger;

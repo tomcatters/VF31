@@ -1,19 +1,7 @@
-<?php
-    session_start();
-?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="../admin/lib/css/register.css">
-        <title>Formulaire d'inscription</title>
-        <meta charset="UTF-8">
-    </head>
-    <body>
-        <div>
+ <div>
+     <caption><h1 class="title">Information d'inscription</h1></caption>
             <form action="signup.php" method="post">
-                <table class="gauche">
-                    <caption><h1 class="title">Information d'inscription</h1></caption>
+                <table class="reg_gauche">
                     <tr>
                         <th colspan="2"><h3>Information personnelle:</h3></th>
                     </tr>
@@ -67,9 +55,9 @@
                     </tr>
                 </table>
             </form>
-            <div class="millieu"><br></div>
+            <div class="reg_millieu"><br></div>
             <form action="login.php" method="post">
-                <table class="droite">
+                <table class="reg_droite">
                     <tr>
                         <th colspan="2"><h2>Se connecter:</h2></th>
                     </tr>
@@ -93,6 +81,4 @@
                 </table>
             </form>
         </div>
-        <div class="clear"></div>
-    </body>
-</html>
+ <div class="clear"></div>

@@ -1,16 +1,3 @@
-.home{
-    margin-right: 1em;
-    text-decoration: underline;
-}
-
-table{
-    text-align: center;
-    empty-cells: show;
-    color: white;
-    background-color: rgba(70,82,50,0.6);
-    padding-bottom: 1em;
-}
-
 table th{
     text-decoration: underline;
 }
@@ -19,29 +6,36 @@ table td{
     font-size: larger;
 }
 
-.gauche{
+.reg_gauche{
     margin-left: 1em;
     float: left;
     width: 45%;
+
+    text-align: center;
+    empty-cells: show;
+    color: white;
+    background-color: rgba(70,82,50,0.6);
+    padding-bottom: 1em;
 }
 
-.millieu{
+.reg_millieu{
     float: left;
     width: 5%;
 }
 
-.droite{
+.reg_droite{
     margin-right: 1em;
     margin-top: 90px;
     float: left;
     width: 45%;
+
+    text-align: center;
+    empty-cells: show;
+    color: white;
+    background-color: rgba(70,82,50,0.6);
+    padding-bottom: 1em;
 }
 
 .clear{
     clear: both;
-}
-
-.legend{
-    text-decoration: underline;
-    font-weight: bold;
 }

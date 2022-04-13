@@ -12,6 +12,9 @@
         <link rel="stylesheet" type="text/css" href="./admin/lib/css/comon.css"/>
         <link rel="stylesheet" type="text/css" href="./admin/lib/css/indexstyle.css"/>
         <link rel="stylesheet" type="text/css" href="./admin/lib/css/Hetzer.css"/>
+        <link rel="stylesheet" type="text/css" href="./admin/lib/css/info.css"/>
+        <link rel="stylesheet" type="text/css" href="./admin/lib/css/register.css">
+        <link rel="stylesheet" type="text/css" href="./admin/lib/css/contactus.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
@@ -30,33 +33,35 @@
         <header id=header>
             <img src="./admin/images/FV214.jpg" alt="FV214" width=100% height="400px">
         </header>
-        <div id="main">
-            <?php
-            if (!isset($_SESSION['page'])) {
-                $_SESSION['page'] = "pages/accueil.php";
-            }
-            if (isset($_GET['page'])) {
-                $_SESSION['page'] = $_GET['page'];
+        <div class="flex-wrapper">
+            <div id="main">
+                <?php
+                if (!isset($_SESSION['page'])) {
+                    $_SESSION['page'] = "pages/accueil.php";
+                }
+                if (isset($_GET['page'])) {
+                    $_SESSION['page'] = $_GET['page'];
 
-            }
-            $path = './pages/' . $_SESSION['page'];
+                }
+                $path = './pages/' . $_SESSION['page'];
 
-            if (file_exists($path)) {
-                include $path;
-            } else {
-                include('pages/404.php');
-            }
-            ?>
-        </div>
-        <footer class="footer">
-            <div>
-                <a href="pages/ContactUs.php">Nous contacter</a>
-                <br><br>
-                <a href="pages/AboutUs.php">À propos</a>
+                if (file_exists($path)) {
+                    include $path;
+                } else {
+                    include('pages/404.php');
+                }
+                ?>
             </div>
-            <p class="footer_rights">
-                Copyright © 2017-2020 Crawford-Industries.
-            </p>
-        <footer>
+            <footer class="footer">
+                <div>
+                    <a class="nav-link" href="index_.php?page=contactus.php">Nous contacter</a>
+                    <br><br>
+                    <a class="nav-link" href="index_.php?page=AboutUs.php">À propos</a>
+                </div>
+                <p class="footer_rights">
+                    Copyright © 2017-2022 Crawford-Industries.
+                </p>
+                <footer>
+        </div>
     </body>
 </html>
