@@ -20,9 +20,10 @@
     <body>
         <nav class="nav">
             <?php
-                if(isset($_SESSION['userId'])){
-                    echo '<a href="pages/logout.php">déconnexion</a>
-                            <a href="pages/user.php">compte</a>';
+                if(isset($_SESSION['id_cli'])){
+                    echo '<a class="nav-link" aria-current="page" href="index_.php?page=accueil.php">Acceuil</a>
+                            <a class="nav-link" href="index_.php?page=logout.php">déconnexion</a>
+                            <a class="nav-link" href="index_.php?page=user.php">compte</a>';
                 }
                 else{
                     echo '<a class="nav-link" aria-current="page" href="index_.php?page=accueil.php">Acceuil</a>

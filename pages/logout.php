@@ -1,12 +1,3 @@
 <?php
-
-    /*fonction session_unset Détruit toutes les variables d'une session */
-
-    /*fonction session_destroy Détruit une session */
-
-    session_start();
-    session_unset();
-    session_destroy();
-
-    header("Location: index.php");
-    exit();
+session_destroy();
+print "<meta http-equiv=\"refresh\": Content=\"0;url=./index_.php?page=accueil.php\">";

@@ -1,8 +1,6 @@
 <?php
     if(isset($_POST['signup-submit'])){
 
-        require 'dbh.php';
-
         $nom = $_POST['nom'];
         $prenom = $_POST['prenom'];
         $sexe = $_POST['sexe'];
@@ -42,11 +40,11 @@
                 exit();    
         }
         else{
-                $sql = "SELECT email FROM client WHERE email=?";
+                $sql = "SELECT email FROM api_client WHERE email=?";
 
                 /*fonction mysqli_stmt_init Initialise une commande MySQL, paramètres "mysql" la variable connexion. */
 
-                $stmt = mysqli_stmt_init($conn);
+                $stmt = mysqli_stmt_init($cnx);
 
                 /*fonction mysqli_stmt_prepare Prépare une requête SQL pour l'exécution, paramètres "statement, query"*/
 
@@ -75,8 +73,8 @@
                                 exit();     
                         }
                         else{
-                                $sql = "INSERT INTO client (nom, prenom, sexe, numtel, email, mdp, pays) VALUES (?, ?, ?, ?, ?, ?, ?)";
-                                $stmt = mysqli_stmt_init($conn);
+                                $sql = "INSERT INTO api_client (nom, prenom, sexe, numtel, email, mdp, pays) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                                $stmt = mysqli_stmt_init($cnx);
                                 if(!mysqli_stmt_prepare($stmt,$sql)){
                                         header("Location: register.php?error=sqlerror1");
                                         exit();    
@@ -103,7 +101,7 @@
 
         /*fonction mysqli_close Ferme une connexion */
 
-        mysqli_close($conn);
+        mysqli_close($cnx);
     }
     else{
         header("Location: register.php");
