@@ -1,5 +1,5 @@
 .htz_table{
-    width: 1212px;
+    width: 80%;
     empty-cells: show;
     margin-left: auto;
     margin-right: auto;
@@ -8,6 +8,7 @@
 }
 
 .htz_table td{
+    width: 33%;
     vertical-align: top;
 }
 
@@ -25,4 +26,27 @@
 li{
     font-size: 1em;
     font-weight: bolder;
+}
+
+.htz_table td img{
+    width: 100%;
+    height: 100%;
+}
+
+.p{
+    width: 80%;
+    empty-cells: show;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid black;
+    background-color: rgb(169,186,135);
+}
+
+.p td{
+    width: 50%;
+    vertical-align: top;
+}
+
+.p td span{
+    font-size: larger;
 }

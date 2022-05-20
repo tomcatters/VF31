@@ -8,10 +8,27 @@ class PostDB extends Post{
         $this->_db = $cnx;
     }
 
+    public function setPost($niv,$type,$gear,$paint,$time,$content,$id_client){
+        try {
+            $sql = "INSERT INTO api_post (niv_client,type_modele,gear_client,paint_client,time_modele,post_content,id_client) 
+            VALUES (:niv,:type,:gear,:paint,:time,:content,:id_client)";
+            $resultset = $this->_db->prepare($sql);
+            $resultset->bindValue(':niv', $niv);
+            $resultset->bindValue(':type', $type);
+            $resultset->bindValue(':gear', $gear);
+            $resultset->bindValue(':paint', $paint);
+            $resultset->bindValue(':time', $time);
+            $resultset->bindValue(':content', $content);
+            $resultset->bindValue(':id_client', $id_client);
+
+            $resultset->execute();
+        }catch (PDOException $e){
+            echo $sql . "<br>" . $e->getMessage();
+        }
+    }
+
     public function getPost($id_post,$id_client){
         try {
-            $id_post = $_POST['id_post'];
-            $id_client = $_SESSION['id_cli'];
             $sql = "SELECT * FROM api_post WHERE id_post= :id_post AND id_client= :id_client";
             $resultset = $this->_db->prepare($sql);
             $resultset->bindValue(':id_post', $id_post);

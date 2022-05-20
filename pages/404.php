@@ -1,1 +1,1 @@
-<h1>ERREUR 404 WIP</h1>
+<h1>ERREUR 404</h1>

@@ -8,6 +8,8 @@
 <html>
     <head>
         <title>Site de construction de maquette</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="./admin/lib/js/fonctionJQuery.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="./admin/lib/css/comon.css"/>
         <link rel="stylesheet" type="text/css" href="./admin/lib/css/indexstyle.css"/>
@@ -23,7 +25,7 @@
                 if(isset($_SESSION['id_cli'])){
                     echo '<a class="nav-link" aria-current="page" href="index_.php?page=accueil.php">Acceuil</a>
                             <a class="nav-link" href="index_.php?page=logout.php">déconnexion</a>
-                            <a class="nav-link" href="index_.php?page=user.php">compte</a>';
+                            <a class="nav-link" href="index_.php?page=user.php">mon compte</a>';
                 }
                 else{
                     echo '<a class="nav-link" aria-current="page" href="index_.php?page=accueil.php">Acceuil</a>

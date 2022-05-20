@@ -10,9 +10,9 @@
                         <td><br></td>
                     </tr>
                         <?php
-                            if(!isset($_SESSION['userId'])){
+                            if(!isset($_SESSION['id_cli'])){
                                 echo'<tr><td>veuillez vous connecter ! </td>
-                                <td><a href="register.php">se connecter</a></td></tr>';
+                                <td><a href="?page=register.php">se connecter</a></td></tr>';
                             }
                         ?>
                     <tr>
@@ -20,13 +20,13 @@
                     </tr>
                     <tr>
                         <?php
-                            if(!isset($_SESSION['userEmail'])){
+                            if(!isset($_SESSION['email'])){
                                 echo '<td><label for="Email">Email:*</label></td>
                                 <td><input type="text"></td>';
                             }
                             else{
                                 echo '<td><label for="Email">Email:</label></td>
-                                <td>'.$_SESSION['userEmail'].'</td>';
+                                <td>'.$_SESSION['email'].'</td>';
                             }
                         ?>
                     </tr>
@@ -36,25 +36,25 @@
                     </tr>
                     <tr>
                         <?php
-                            if(!isset($_SESSION['userNom'])){
+                            if(!isset($_SESSION['nom'])){
                                 echo '<td><label for="nom">Nom:*</label></td>
                                 <td><input type="text"></td>';
                             }
                             else{
                                 echo '<td><label for="nom">Nom:</label></td>
-                                <td>'.$_SESSION['userNom'].'</td>';
+                                <td>'.$_SESSION['nom'].'</td>';
                             }
                         ?>
                     </tr>
                     <tr>
                         <?php
-                            if(!isset($_SESSION['userPrenom'])){
+                            if(!isset($_SESSION['prenom'])){
                                 echo '<td><label for="prenom">Prenom:*</label></td>
                                 <td><input type="text"></td>';
                             }
                             else{
                                 echo '<td><label for="nom">Prenom:</label></td>
-                                <td>'.$_SESSION['userPrenom'].'</td>';
+                                <td>'.$_SESSION['prenom'].'</td>';
                             }
                         ?>
                     </tr>

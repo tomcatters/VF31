@@ -6,7 +6,12 @@ class UserDB extends user{
 
     public function __construct($cnx)
     {
+        $this->host = $_SESSION['id_cli'];
         $this->_db = $cnx;
+    }
+
+    function updateUser($id_client,$email,$mdp){
+
     }
 
     public function setUser($nom,$prenom,$numtel,$email,$mdp,$pays){
@@ -50,7 +55,33 @@ class UserDB extends user{
         }
     }
 
-    public function editUser(){
+    public function editUser($email,$mdp){
+        try {
+            if ($email!=null && $mdp!=null) {
+                $sql = "UPDATE api_client SET email = :email, mdp = :mdp WHERE id_client = :id_client";
+                $resultset = $this->_db->prepare($sql);
+                $resultset->bindValue(':email', $email);
+                $resultset->bindValue(':mdp', $mdp);
+                $resultset->bindValue(':id_client', $this->host);
 
+                $resultset->execute();
+            }/*if ($email!=null && $mdp==null){
+                $sql = "UPDATE api_client SET email = :email WHERE id_client = :id_client";
+                $resultset = $this->_db->prepare($sql);
+                $resultset->bindValue(':email', $email);
+                $resultset->bindValue(':id_client', $this->host);
+
+                $resultset->execute();
+            }if ($email==null && $mdp!=null){
+                $sql = "UPDATE api_client SET mdp = :mdp WHERE id_client = :id_client";
+                $resultset = $this->_db->prepare($sql);
+                $resultset->bindValue(':mdp', $mdp);
+                $resultset->bindValue(':id_client', $this->host);
+
+                $resultset->execute();
+            }*/
+        }catch (PDOException $e){
+            print "Erreur : " . $e->getMessage();
+        }
     }
 }

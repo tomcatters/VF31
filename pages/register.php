@@ -22,33 +22,9 @@
         }else{
             print " NULL" ;
         }
-
-        /*try {
-            $nom = $_POST['nom'];
-            $prenom = $_POST['prenom'];
-            $numtel = $_POST['ntel'];
-            $email = $_POST['email'];
-            $mdp = $_POST['mdp'];
-            $pays = $_POST['pays'];
-            /*$sql = "INSERT INTO api_client (nom, prenom, numtel, pays, email, mdp) values ('$nom','$prenom','$numtel','$pays','$email','$mdp')";
-            //$result = pg_query($sql);
-            $cnx->exec($sql);
-            $sql = "INSERT INTO api_client (nom, prenom, numtel, pays, email, mdp) values (:nom,:prenom,:numtel,:pays,:email,:mdp)";
-            $resultset = $cnx->prepare($sql);
-            $resultset->bindValue(':nom', $nom);
-            $resultset->bindValue(':prenom', $prenom);
-            $resultset->bindValue(':numtel', $numtel);
-            $resultset->bindValue(':pays', $pays);
-            $resultset->bindValue(':email', $email);
-            $resultset->bindValue(':mdp', $mdp);
-
-            $resultset->execute();
-        }catch (PDOException $e){
-            echo $sql . "<br>" . $e->getMessage();
-        }*/
     }
     if (isset($_POST['login-submit'])){
-        //extract($_POST,EXTR_OVERWRITE);
+        extract($_POST,EXTR_OVERWRITE);
 
         $email = $_POST['logemail'];
         $mdp = $_POST['logmdp'];
@@ -57,14 +33,19 @@
         $usr = $user->getUser($email,$mdp);
 
         if ($usr!=null){
-            print "<br> BIENVENUE ".$usr->id_client;
             $_SESSION['id_cli']=$usr[0]->id_client;
             $_SESSION['nom']=$usr[0]->nom;
             $_SESSION['prenom']=$usr[0]->prenom;
             $_SESSION['numtel']=$usr[0]->numtel;
             $_SESSION['email']=$usr[0]->email;
+            $_SESSION['mdp']=$usr[0]->mdp;
             unset($_SESSION['page']);
-            print "<meta http-equiv=\"refresh\": Content=\"0;url=./index_.php?page=accueil.php\">";
+            if ($_SESSION['id_cli']==7){
+                //print "<meta http-equiv=\"refresh\": Content=\"0;url=./indexAdmin_.php?page=accueil.php\">";
+                print "<meta http-equiv=\"refresh\": Content=\"0;url=./admin/indexAdmin_.php?page=accueilAdmin.php\">";
+            }else{
+                print "<meta http-equiv=\"refresh\": Content=\"0;url=./index_.php?page=accueil.php\">";
+            }
         }else{
             print " NULL" ;
         }

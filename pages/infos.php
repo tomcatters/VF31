@@ -1,29 +1,15 @@
 <?php
     if (isset($_POST['send-submit'])){
-        try {
-            $niv = $_POST['level'];
-            $type = $_POST['type'];
-            $gear = $_POST['gear'];
-            $paint = $_POST['paint'];
-            $time = $_POST['time'];
-            $content = $_POST['content'];
-            $id_client = $_SESSION['id_cli'];
+        $niv = $_POST['level'];
+        $type = $_POST['type'];
+        $gear = $_POST['gear'];
+        $paint = $_POST['paint'];
+        $time = $_POST['time'];
+        $content = $_POST['content'];
+        $id_client = $_SESSION['id_cli'];
 
-            $sql = "INSERT INTO api_post (niv_client,type_modele,gear_client,paint_client,time_modele,post_content,id_client) 
-            VALUES (:niv,:type,:gear,:paint,:time,:content,:id_client)";
-            $resultset = $cnx->prepare($sql);
-            $resultset->bindValue(':niv', $niv);
-            $resultset->bindValue(':type', $type);
-            $resultset->bindValue(':gear', $gear);
-            $resultset->bindValue(':paint', $paint);
-            $resultset->bindValue(':time', $time);
-            $resultset->bindValue(':content', $content);
-            $resultset->bindValue(':id_client', $id_client);
-
-            $resultset->execute();
-        }catch (PDOException $e){
-            echo $sql . "<br>" . $e->getMessage();
-        }
+        $post = new PostDB($cnx);
+        $pst = $post->setPost($niv,$type,$gear,$paint,$time,$content,$id_client);
     }
 ?>
 

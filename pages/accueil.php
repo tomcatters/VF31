@@ -1,3 +1,9 @@
+<?php
+    $produit = new ProduitDB($cnx);
+    $prdt = $produit->getProduit();
+    $prd_dtls = $produit->getProduit_dtls();
+?>
+
 <div>
     <p>
     <h3 id="acc_intro">Bienvenue sur ce site de construction et de peinture de maquette. Ce site vous présentera un guide sur la réalisation complète
@@ -16,7 +22,7 @@
                     <a href=""><img src="admin/images/M3Stuart.jpg" alt="M3 Stuart" width="400" height="300"></a>
                 </td>
                 <td>
-                    <a class="nav-link" href="index_.php?page=Hetzer.php"><img src="admin/images/Hetzer.jpg" alt="Pz.38t Hetzer" width="400" height="300"></a>
+                    <a class="nav-link" href="index_.php?page=Hetzer.php"><img src="<?php echo $prd_dtls[0]->img_lk ?>" alt="Pz.38t Hetzer" width="400" height="300"></a>
                 </td>
                 <td>
                     <a href=""><img src="admin/images/Panther.jpg" alt="hetzer" width="400" height="300"></a>
@@ -25,7 +31,7 @@
             <tr>
                 <td class="TdAlign"><h3 class="acc_border">T-34/76</h3></td>
                 <td class="TdAlign"><h3 class="acc_border">M3 Stuart</h3></td>
-                <td class="TdAlign"><h3 class="acc_border">JgPz. 38t Hetzer</h3></td>
+                <td class="TdAlign"><h3 class="acc_border"><?php echo $prdt[0]->p_nom ?></h3></td>
                 <td class="TdAlign"><h3 class="acc_border">Pz.Kpfw. V Panther</h3></td>
             </tr>
         </table>

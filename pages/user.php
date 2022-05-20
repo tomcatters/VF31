@@ -1,5 +1,34 @@
- <div class="cts_gauche">
-                <form action="editAccount.php" method="post">
+<?php
+if (isset($_POST['newEmail']) || $_POST['newMdp']){
+
+    if ($_POST['newEmail']!=null){
+        $email = $_POST['newEmail'];
+    }else{
+        $email = $_SESSION['email'];
+    }
+    if ($_POST['newMdp']!=null){
+        $mdp = $_POST['newMdp'];
+    }else{
+        $mdp = $_SESSION['mdp'];
+    }
+
+    $user = new UserDB($cnx);
+    $usr = $user->editUser($email,$mdp);
+
+    $usr = $user->getUser($email,$mdp);
+
+    $_SESSION['id_cli']=$usr[0]->id_client;
+    $_SESSION['nom']=$usr[0]->nom;
+    $_SESSION['prenom']=$usr[0]->prenom;
+    $_SESSION['numtel']=$usr[0]->numtel;
+    $_SESSION['email']=$usr[0]->email;
+    $_SESSION['mdp']=$usr[0]->mdp;
+    //js
+}
+?>
+
+<div class="cts_gauche">
+                <form action="" method="post">
                     <h1>Detail du compte:</h1>
                     <table>
                         <?php
@@ -44,26 +73,26 @@
                                 else{
                                     echo '<td><label for="Email">Email:</label></td>
                                     <td>'.$_SESSION['email'].'</td>
-                                    <td><input type="text" name="newEmail" placeholder="nouvelle adresse email"></td>';
+                                    <td><input id="newEmail" type="text" name="newEmail" placeholder="nouvelle adresse email"></td>';
                                 }
                             ?>
                         </tr>
                         <tr>
                             <?php
                                 if(!isset($_SESSION['email'])){
-                                    echo '<td><label for="newMdp">Nouveau mot de passe:</label></td>
+                                    echo '<td><label for="newmdp">Nouveau mot de passe:</label></td>
                                     <td>?</td>';
                                 }
                                 else{
                                     echo '<td><label for="newmdp">Nouveau mot de passe:</label></td>
-                                    <td><input type="password" name="newMdp" placeholder="nouveau mot de passe"></td>';
+                                    <td><input id="newMdp" type="password" name="newMdp" placeholder="nouveau mot de passe"></td>';
                                 }
                             ?>
                         </tr>
                         <tr>
                             <?php
                                 if(!isset($_SESSION['numtel'])){
-                                    echo '<td><label for="newMdp">Numéro de téléphone:</label></td>
+                                    echo '<td><label for="numtel">Numéro de téléphone:</label></td>
                                     <td>?</td>';
                                 }
                                 else{
@@ -89,7 +118,7 @@
                             ?>
                         </tr>
                         <tr>
-                            <td><button type="submit" name="edit-submit">modifier</button></td>
+                            <td><input id="edit" type="submit" value="modifier"></input></td>
                         </tr>
                     </table>
                     </form>
@@ -108,32 +137,6 @@
                         </form>
                         <?php
                             if(isset($_POST['postid-submit'])){
-                                /*try {
-                                    $id_post = $_POST['id_post'];
-                                    $userID = $_SESSION['id_cli'];
-                                    $sql = "SELECT * FROM api_post WHERE id_post= :id_post AND id_client= :id_client";
-                                    $resultset = $cnx->prepare($sql);
-                                    $resultset->bindValue(':id_post', $id_post);
-                                    $resultset->bindValue(':id_client', $id_client);
-                                    $resultset->execute();
-                                    $numpost = $resultset->rowCount();
-                                    if($numpost>0){
-                                        $row = $resultset->fetch();
-                                        echo '<tr><td>Niveau: '.$row['niv_client'].'</td>
-                                        <td>Modèle: '.$row['type_modele'].'</td>
-                                        <td>Equipement: '.$row['gear_client'].'</td>
-                                        <td>Peinture: '.$row['paint_client'].'</td>
-                                        <td>Temps: '.$row['time_modele'].'</td></tr>';
-                                        echo'<tr><td>Publication: </td></tr>';
-                                        echo'<tr><td colspan=5>'.$row['post_content'].'</td></tr>';
-                                    }else{
-                                        echo '<tr><td>Aucun résultat!!</td></tr>';
-                                        header("Location: user.php?error=noresults");
-                                        exit();
-                                    }
-                                }catch (PDOException $e){
-                                    echo $sql . "<br>" . $e->getMessage();
-                                }*/
                                 $id_post = $_POST['id_post'];
                                 $userID = $_SESSION['id_cli'];
 
@@ -147,11 +150,9 @@
                                         <td>Peinture: '.$pst[0]->paint_client.'</td>
                                         <td>Temps: '.$pst[0]->time_modele.'</td></tr>';
                                     echo'<tr><td>Publication: </td></tr>';
-                                    //echo'<tr><td colspan=5>'.$pst[0]->post_content.'</td></tr>';
                                     echo '<tr><td colspan=5><textarea readonly cols="65" rows="12" placeholder="'.$pst[0]->post_content.'"></textarea></td></tr>';
                                 }else{
                                     echo '<tr><td>Aucun résultat!!</td></tr>';
-                                    header("Location: user.php?error=noresults");
                                     exit();
                                 }
                             }
