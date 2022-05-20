@@ -1,19 +1,11 @@
 <?php
-echo 'hello';
 header('Content-Type: application/json');
 require '../pgConnect.php';
 require '../classes/Connexion.class.php';
 require '../classes/Produit.class.php';
 require '../classes/ProduitDB.class.php';
-//require './admin/lib/php/classes/Connexion.class.php';
-
-/*$dsn = 'pgsql:host=localhost;dbname=Blindex;port=5432';
-$user = 'root';
-$password = 'root';*/
 
 $cnx = Connexion::getInstance($dsn,$user,$password);
-
-echo $_GET['clm'];
 
 try {
     $produit = new ProduitDB($cnx);
