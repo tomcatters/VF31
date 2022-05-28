@@ -25,7 +25,8 @@ require 'lib/php/admin_liste_include.php';
     if(isset($_SESSION['id_cli']) && $_SESSION['id_cli']==7){
         echo '<a class="nav-link" aria-current="page" href="indexAdmin_.php?page=acceuilAdmin.php">Acceuil</a>
                             <a class="nav-link" href="indexAdmin_.php?page=logoutAdmin.php">déconnexion</a>
-                            <a class="nav-link" href="indexAdmin_.php?page=userAdmin.php">Admin</a>';
+                            <a class="nav-link" href="indexAdmin_.php?page=userAdmin.php">Admin</a>
+                            <a class="nav-link" href="indexAdmin_.php?page=produitAdmin.php">Gestion des produits</a>';
     }
     else{
         echo '<a class="nav-link" aria-current="page" href="index_.php?page=acceuil.php">Acceuil</a>
@@ -40,7 +41,7 @@ require 'lib/php/admin_liste_include.php';
     <div id="main">
         <?php
         if (!isset($_SESSION['page'])) {
-            $_SESSION['page'] = "pages/accueuilAdmin.php";
+            $_SESSION['page'] = "pages/acceuilAdmin.php";
         }
         if (isset($_GET['page'])) {
             $_SESSION['page'] = $_GET['page'];

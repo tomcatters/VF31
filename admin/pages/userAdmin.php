@@ -113,38 +113,15 @@ if (isset($_POST['newEmail']) || $_POST['newMdp']){
 </div>
 <div class="cts_millieu"><br></div>
 <div class="cts_droite">
-    <table>
-        <form action="" method="post">
-            <tr>
-                <?php
-                echo '<td><label for="newMdp">Numéro id de publication:</label></td>
-                                    <td><input type="number" name ="id_post"></td>
-                                    <td><button type="submit" name="postid-submit">entrer</button></td>';
-                ?>
-            </tr>
-        </form>
-        <?php
-        if(isset($_POST['postid-submit'])){
-            $id_post = $_POST['id_post'];
-            $userID = $_SESSION['id_cli'];
+    <div>
+        <label>Numéro id client:</label>
+        <input type="number" name="id_client" id="id_client">
+        <table>
+            <div id="commentsAdmin">
 
-            $post = new PostDB($cnx);
-            $pst = $post->getPost($id_post,$id_client);
-
-            if ($pst!=null){
-                echo '<tr><td>Niveau: '.$pst[0]->niv_client.'</td>
-                                        <td>Modèle: '.$pst[0]->type_modele.'</td>
-                                        <td>Equipement: '.$pst[0]->gear_client.'</td>
-                                        <td>Peinture: '.$pst[0]->paint_client.'</td>
-                                        <td>Temps: '.$pst[0]->time_modele.'</td></tr>';
-                echo'<tr><td>Publication: </td></tr>';
-                echo '<tr><td colspan=5><textarea readonly cols="65" rows="12" placeholder="'.$pst[0]->post_content.'"></textarea></td></tr>';
-            }else{
-                echo '<tr><td>Aucun résultat!!</td></tr>';
-                exit();
-            }
-        }
-        ?>
-    </table>
+            </div>
+        </table>
+        <button type="submit" id="buttonAdmin">Charger plus de messages</button>
+    </div>
 </div>
 <div class="clear"></div>

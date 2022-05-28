@@ -50,4 +50,42 @@ class PostDB extends Post{
             echo $sql . "<br>" . $e->getMessage();
         }
     }
+
+    public function getPostLM($id_client){
+        try {
+            $sql = "SELECT * FROM api_post WHERE id_client= :id_client LIMIT 2";
+            $resultset = $this->_db->prepare($sql);
+            $resultset->bindValue(':id_client', $id_client);
+            $resultset->execute();
+            while ($retour = $resultset->fetch()){
+                $_array[] = new Post($retour);
+            }
+            if (!empty($_array)){
+                return $_array;
+            }else {
+                return null;
+            }
+        }catch (PDOException $e){
+            echo $sql . "<br>" . $e->getMessage();
+        }
+    }
+
+    public function getPostNLM($id_client,$commentNewCount){
+        try {
+            $sql = "SELECT * FROM api_post WHERE id_client= :id_client LIMIT $commentNewCount";
+            $resultset = $this->_db->prepare($sql);
+            $resultset->bindValue(':id_client', $id_client);
+            $resultset->execute();
+            while ($retour = $resultset->fetch()){
+                $_array[] = new Post($retour);
+            }
+            if (!empty($_array)){
+                return $_array;
+            }else {
+                return null;
+            }
+        }catch (PDOException $e){
+            echo $sql . "<br>" . $e->getMessage();
+        }
+    }
 }

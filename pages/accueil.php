@@ -1,7 +1,7 @@
 <?php
     $produit = new ProduitDB($cnx);
-    $prdt = $produit->getProduit();
-    $prd_dtls = $produit->getProduit_dtls();
+    $prdt = $produit->getProduit(1);
+    $prd_dtls = $produit->getProduit_dtls(1);
 ?>
 
 <div>
@@ -16,16 +16,16 @@
         <table class="acc_TableAlign">
             <tr>
                 <td>
-                    <a href=""><img src="admin/images/T34.jpg" alt="T34/76" width="400" height="300"></a>
+                    <a href="index_.php?page=wip.php"><img src="admin/images/T34.jpg" alt="T34/76" width="400" height="300"></a>
                 </td>
                 <td>
-                    <a href=""><img src="admin/images/M3Stuart.jpg" alt="M3 Stuart" width="400" height="300"></a>
+                    <a href="index_.php?page=wip.php"><img src="admin/images/M3Stuart.jpg" alt="M3 Stuart" width="400" height="300"></a>
                 </td>
                 <td>
                     <a class="nav-link" href="index_.php?page=Hetzer.php"><img src="<?php echo $prd_dtls[0]->img_lk ?>" alt="Pz.38t Hetzer" width="400" height="300"></a>
                 </td>
                 <td>
-                    <a href=""><img src="admin/images/Panther.jpg" alt="hetzer" width="400" height="300"></a>
+                    <a href="index_.php?page=wip.php"><img src="admin/images/Panther.jpg" alt="hetzer" width="400" height="300"></a>
                 </td>
             </tr>
             <tr>

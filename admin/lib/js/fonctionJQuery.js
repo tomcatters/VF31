@@ -1,4 +1,8 @@
 $(document).ready(function () {
+
+    var commentCount = 0;
+    var commentCount2 = 0;
+
     $("#editAccount").submit(function (event){
         var newMdp,newEmail;
         newMdp = $('#newMdp').val;
@@ -53,12 +57,32 @@ $(document).ready(function () {
                     type: 'GET',
                     data: parametres,
                     dataType: 'json',
-                    url: './lib/php/ajax/ajax_ProduitDB_Operatin.php',
+                    url: './lib/php/ajax/ajax_ProduitDB_Update.php',
                     success: function (data) {
                         console.log(data);
                     }
                 })
             }
         })
+    })
+
+    /*$("button").click(function (){
+        var id = $(this).attr("id");
+        commentCount = commentCount + 2;
+        $("#comments").load("./admin/lib/php/ajax/ajax_PostDB_Operation.php", {
+            commentNewCount: commentCount, idcli: id});
+    });*/
+
+    $("#buttonAdmin").click(function (){
+        var id = $('#id_client').val();
+        commentCount2 = commentCount2 + 2;
+        $("#commentsAdmin").load("./lib/php/ajax/ajax_PostDB_Operation.php", {
+            commentNewCount: commentCount2, idcli: id});
+    });
+
+    $("#post_id_produit").click(function (){
+        var id_p = $('#id_prod').val();
+        $("#prod_content").load("./lib/php/ajax/ajax_ProduitDB_get.php", {
+            id_produit: id_p});
     })
 })

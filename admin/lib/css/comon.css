@@ -49,6 +49,16 @@ body{
     color: white;
 }
 
+#title_wip{
+    text-align: center;
+    color: yellow;
+}
+
+.titlead{
+    text-align: center;
+    color: white;
+}
+
 .TdAlign{
     text-align: center;
     color: white;
@@ -81,4 +91,10 @@ footer a{
     float: right;
     margin-right: 1.5em;
     padding-top: 1em;
+}
+
+#wip_img{
+    text-align:center;
+    margin:auto;
+    display:flex;
 }

@@ -1,7 +1,7 @@
 <?php
 $produit = new ProduitDB($cnx);
-$prdt = $produit->getProduit();
-$prd_dtls = $produit->getProduit_dtls();
+$prdt = $produit->getProduit(1);
+$prd_dtls = $produit->getProduit_dtls(1);
 ?>
 
 <h1 class="title">Guide de réalisation du JgPz. 38t Hetzer</h1>
