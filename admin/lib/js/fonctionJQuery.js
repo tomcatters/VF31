@@ -66,12 +66,12 @@ $(document).ready(function () {
         })
     })
 
-    /*$("button").click(function (){
+    $("button").click(function (){
         var id = $(this).attr("id");
         commentCount = commentCount + 2;
         $("#comments").load("./admin/lib/php/ajax/ajax_PostDB_Operation.php", {
             commentNewCount: commentCount, idcli: id});
-    });*/
+    });
 
     $("#buttonAdmin").click(function (){
         var id = $('#id_client').val();
